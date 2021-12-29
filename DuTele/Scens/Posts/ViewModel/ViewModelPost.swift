@@ -40,6 +40,8 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         }
     }()
     
+    
+    //MARK: Method fetch data from server
     func fetchPostsData() -> Observable<Void> {
         
         self.baseStateProperty.onNext(.loading)
@@ -59,6 +61,7 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         return .empty()
     }
     
+    //MARK: fetch local saved data deom core data
     func localSavedPosts() {
         Utilities.fetchPosts(completion: {[weak self] (result:Result<PostsModel,DataBaseError>) in
             switch result {
@@ -80,6 +83,7 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         })
     }
     
+    //MARK: save favourite posts
     func savedFav() {
         let managedContext = Utilities.getContext()
         Utilities.fetch(type: FavPosts.self, managedObjectContext: managedContext) { (postList: [FavPosts]?) in
@@ -96,6 +100,7 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         }
     }
     
+    //MARK: save all posts locally
     func saveData() {
         
         let managedContext = Utilities.getContext()
@@ -112,6 +117,7 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         
     }
     
+    //MARK: make favourite post
     func makeFavourite(postElement:PostsElement?, isFromFav:Bool = false) {
         postElement?.isFav = !(postElement?.isFav ?? false)
         
@@ -142,6 +148,8 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
         }
         
     }
+    
+    //MARK: delete all data before save into core data to update latest data
     func deleteAllData(_ entity:String) {
         let managedContext = Utilities.getContext()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
@@ -162,6 +170,3 @@ class ViewModelPosts:BaseViewModel, UsersViewModelInput, UsersViewModelType, Use
     
 }
 
-protocol ServerUpdate:AnyObject {
-    func update()
-}

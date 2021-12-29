@@ -16,10 +16,12 @@ class FavouriteViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+    
+    //MARK: initiliza viewmodel and tableview
     private func setup() {
         
         viewModel = ViewModelFav()
-        viewModel?.viewModel?.inputs.fetchPosts.execute()
+        //get save favourite data
         viewModel?.viewModel?.savedFav()
         favouriteTableView.register(UINib(nibName: "PostsTableViewCell", bundle: .main), forCellReuseIdentifier: PostsTableViewCell.indenfier)
         favouriteTableView.dataSource = self
@@ -27,6 +29,7 @@ class FavouriteViewController: UIViewController {
         bindViewModel()
     }
     
+    //MARK: bind data with ui. this suscriber observer calles on event
     func bindViewModel() {
         _ = viewModel?.viewModel?.inputs
         let outputs = viewModel?.viewModel?.outputs
@@ -45,6 +48,8 @@ class FavouriteViewController: UIViewController {
         }).disposed(by: disposeBag)
         
     }
+    
+    //MARK: to fetch update data on appear screen
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel?.viewModel?.savedFav()
@@ -52,7 +57,8 @@ class FavouriteViewController: UIViewController {
 
 }
 
-extension FavouriteViewController: UITableViewDataSource, ServerUpdate {
+//MARK: tableview datasource methods
+extension FavouriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.viewModel?.favouriteList?.count ?? 0
     }
@@ -70,6 +76,8 @@ extension FavouriteViewController: UITableViewDataSource, ServerUpdate {
        
         return cell
     }
+    
+    //MARK: remove favourite
     @objc func removeFav(sender:UIButton) {
         if let post = viewModel?.viewModel?.favouriteList?[sender.tag] {
             viewModel?.removeFav(post: post)
@@ -77,6 +85,7 @@ extension FavouriteViewController: UITableViewDataSource, ServerUpdate {
         
     }
     
+    //MARK: reload tableview
     func update() {
         DispatchQueue.main.async {
             self.favouriteTableView.reloadData()

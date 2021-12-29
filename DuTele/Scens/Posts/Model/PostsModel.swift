@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: posts atrributes
 class PostsElement:Codable {
     let userId:Int?
     let id: Int?
@@ -16,4 +17,5 @@ class PostsElement:Codable {
     
 }
 
+//MARK: total posts
 typealias PostsModel = [PostsElement]

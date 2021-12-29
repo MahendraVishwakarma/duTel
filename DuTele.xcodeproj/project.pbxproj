@@ -214,7 +214,6 @@
 		807DD8AE2774F273002D18B0 /* FavouritesPosts */ = {
 			isa = PBXGroup;
 			children = (
-				807DD8D3277628FB002D18B0 /* Model */,
 				807DD8D2277628F3002D18B0 /* View */,
 				807DD8D1277628E7002D18B0 /* ViewModel */,
 			);
@@ -296,13 +295,6 @@
 				807DD8D527762914002D18B0 /* FavouriteViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		807DD8D3277628FB002D18B0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		807DD8DA277644A4002D18B0 /* NavigationController */ = {

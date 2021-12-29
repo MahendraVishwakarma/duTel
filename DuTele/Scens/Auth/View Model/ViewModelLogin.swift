@@ -10,10 +10,11 @@ import RxSwift
 import RxRelay
 
 class ViewModelLogin {
-    
+    //MARK: these two subjects are used
     var userEmail = BehaviorRelay<String?>(value: "")
     var userPassword = BehaviorRelay<String?>(value: "")
     
+    //MARK: check form is valid or not
     var isValidForm: Observable<Bool> {
         return Observable.combineLatest(userEmail, userPassword) {email, password in
             guard email != nil && password != nil else {
@@ -24,6 +25,7 @@ class ViewModelLogin {
         }
     }
     
+    //MARK: save user model
     func makeLogin() -> UserLoginStatus {
         let user = LoginUser(username: userEmail.value, password: userPassword.value)
         return Utilities.makeLoginUser(user: user)

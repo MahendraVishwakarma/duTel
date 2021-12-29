@@ -131,11 +131,6 @@ struct Utilities {
     
 }
 
-struct LoginUser:Codable {
-   let username:String?
-   let password:String?
-}
-
 enum UserLoginStatus {
     case loginSuccess
     case loginFailed

@@ -21,18 +21,17 @@ class PostsViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
     }
-    
-    
+    //MARK: setup/initilization of viewmodel, tableview
     private func setup() {
         
         viewModel = ViewModelPosts()
-        viewModel?.inputs.fetchPosts.execute()
-        
+       
         postsTableView.register(UINib(nibName: "PostsTableViewCell", bundle: .main), forCellReuseIdentifier: PostsTableViewCell.indenfier)
         postsTableView.dataSource = self
         bindViewModel()
     }
     
+    //MARK: bind data with UI. this observer calls on event fired
     func bindViewModel() {
       
         let outputs = viewModel?.outputs
@@ -53,17 +52,20 @@ class PostsViewController: UIViewController {
         }).disposed(by: disposeBag)
         
     }
+    
+    //MARK: this methos fetch updated data
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         viewModel?.savedFav()
         viewModel?.localSavedPosts()
         self.navigationController?.isNavigationBarHidden = false
-       
+
     }
 }
 
-
-extension PostsViewController: UITableViewDataSource, ServerUpdate {
+//MARK: tableview datasource methods
+extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.totalPosts?.count ?? 0
     }
@@ -81,6 +83,8 @@ extension PostsViewController: UITableViewDataSource, ServerUpdate {
         
         return cell
     }
+    
+    //MARK: called on to make favourite
     @objc func makeFav(sender:UIButton) {
         if let post = viewModel?.totalPosts?[sender.tag] {
             viewModel?.makeFavourite(postElement: post)
@@ -88,11 +92,14 @@ extension PostsViewController: UITableViewDataSource, ServerUpdate {
         
     }
     
+    //MARK: loader start loading
     func startLoading() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
         }
     }
+    
+    //MARK: reload tableview
     func update() {
         DispatchQueue.main.async {
             self.postsTableView.reloadData()

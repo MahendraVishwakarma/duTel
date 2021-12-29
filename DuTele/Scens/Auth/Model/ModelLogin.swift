@@ -7,3 +7,8 @@
 
 import Foundation
 
+//MARK: user model
+struct LoginUser:Codable {
+   let username:String?
+   let password:String?
+}

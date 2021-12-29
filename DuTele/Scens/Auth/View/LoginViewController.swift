@@ -10,7 +10,7 @@ import RxSwift
 
 class LoginViewController: UIViewController {
     
-    // disposed are used to free memory
+    //MARK:  disposed are used to free memory
     var disposeBag = DisposeBag()
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnLOgin: UIButton!
@@ -23,14 +23,14 @@ class LoginViewController: UIViewController {
         setup()
     }
     
-    // method contains basic initialization
+    //MARK:  method contains basic initialization
     private func setup() {
         btnLOgin.setTitleColor(.gray, for: .disabled)
         viewModel = ViewModelLogin()
         bindViewModel()
     }
     
-    // it is used to bind UI with Rx subjects
+    //MARK:  it is used to bind UI with Rx subjects
     func bindViewModel() {
        
         if let validViewModel = viewModel {
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
     }
     
     
-   // method is called on tapped Login button
+   //MARK:  method is called on tapped Login button
     @IBAction func login(_ sender: Any) {
         if viewModel?.makeLogin()  == .loginSuccess {
             let obj = TabBarViewController()

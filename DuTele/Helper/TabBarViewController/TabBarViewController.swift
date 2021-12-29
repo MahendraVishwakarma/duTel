@@ -21,9 +21,10 @@ class TabBarViewController: UITabBarController {
         self.navigationItem.rightBarButtonItem  = button1
         self.navigationItem.hidesBackButton = true
         self.tabBar.barTintColor = UIColor(named: "AppTheme")
-        self.tabBar.isTranslucent = false
+        self.tabBar.isTranslucent = true
         self.tabBar.tintColor = .white
         self.viewControllers = Utilities.setControllers()
+        
     }
     
     @objc func logout() {

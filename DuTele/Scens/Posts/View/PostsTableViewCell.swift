@@ -30,6 +30,7 @@ class PostsTableViewCell: UITableViewCell {
     }
     static let indenfier = String(describing: self)
     
+    //MARK: bind data with UI
     func setData(post:PostsElement?) {
         titleLabel.text = post?.title
         bodyLabel.text = post?.body

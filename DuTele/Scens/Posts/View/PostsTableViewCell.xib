@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQZ-rh-ejx">
-                                <rect key="frame" x="10" y="10" width="382" height="65"/>
+                                <rect key="frame" x="10" y="10" width="378" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" name="AppTheme"/>
                                 <nil key="highlightedColor"/>
@@ -47,8 +47,8 @@
                         <constraints>
                             <constraint firstItem="T90-6Z-k5O" firstAttribute="leading" secondItem="i2A-6I-xRC" secondAttribute="trailing" constant="6" id="Bhj-0C-b0a"/>
                             <constraint firstItem="mQZ-rh-ejx" firstAttribute="leading" secondItem="Fv0-XV-lTZ" secondAttribute="leading" constant="10" id="Csd-Vz-cTF"/>
-                            <constraint firstAttribute="trailing" secondItem="mQZ-rh-ejx" secondAttribute="trailing" constant="4" id="HSf-hB-Ddn"/>
-                            <constraint firstAttribute="bottom" secondItem="mQZ-rh-ejx" secondAttribute="bottom" constant="4" id="I6r-mG-OHl"/>
+                            <constraint firstAttribute="trailing" secondItem="mQZ-rh-ejx" secondAttribute="trailing" constant="8" id="HSf-hB-Ddn"/>
+                            <constraint firstAttribute="bottom" secondItem="mQZ-rh-ejx" secondAttribute="bottom" constant="8" id="I6r-mG-OHl"/>
                             <constraint firstItem="i2A-6I-xRC" firstAttribute="top" secondItem="Fv0-XV-lTZ" secondAttribute="top" constant="4" id="LFW-z5-6TS"/>
                             <constraint firstAttribute="trailing" secondItem="T90-6Z-k5O" secondAttribute="trailing" constant="4" id="NN3-5U-3d9"/>
                             <constraint firstItem="i2A-6I-xRC" firstAttribute="leading" secondItem="Fv0-XV-lTZ" secondAttribute="leading" constant="10" id="SeZ-WC-Rsy"/>

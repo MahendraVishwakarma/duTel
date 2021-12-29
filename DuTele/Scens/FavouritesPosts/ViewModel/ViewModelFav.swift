@@ -17,6 +17,7 @@ class ViewModelFav {
         fetchAllPosts()
     }
     
+    //MARK: fetch local favourite posts
     func fetchAllPosts()  {
         Utilities.fetchPosts(completion: { (result:Result<PostsModel,DataBaseError>) in
             switch result {
@@ -29,10 +30,13 @@ class ViewModelFav {
         })
     }
     
+    //MARK: get PostsElement model from FavMOdel's id
     func getPost(postID:Int) -> PostsElement?{
         let post = viewModel?.totalPosts?.filter({$0.id == postID}).first
         return post
     }
+    
+    //MARK: remove favourite
     func removeFav(post:FavPosts?) {
         if let postID = post?.postID {
             let postElement = getPost(postID: Int(postID))
